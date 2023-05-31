@@ -4,13 +4,27 @@
 
 $(function () {
 
+var input = $('#hour-9');
 var saveBtn = $('.saveBtn');
 
-function saveInput() {
-  console.log("works");
+getLocalStorage();
+
+function getLocalStorage() {
+  var calendarEvent = localStorage.getItem("Calendar Event");
+  input.textcontent = calendarEvent;
+}
+
+function saveInput(event) {
+  event.preventDefault();
+
+  var calendarEvent = $('#hour-9').value;
+  localStorage.setItem("Calendar Event", calendarEvent);
+
+  console.log(input);
+ 
 };
 
-saveBtn.addEventListener('click', saveInput);
+$(saveBtn).on('click', saveInput);
 
 
   // TODO: Add a listener for click events on the save button. This code should
