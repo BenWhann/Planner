@@ -17,8 +17,9 @@ function getLocalStorage() {
 function saveInput(event) {
   event.preventDefault();
 
-  var calendarEvent = $('#hour-9').value;
-  localStorage.setItem("Calendar Event", calendarEvent);
+  var text = $(this).siblings('.description').val();
+  var hour = $(this).parent().attr('id').split('-')[1];
+  localStorage.setItem(text, hour);
 
   console.log(input);
  
