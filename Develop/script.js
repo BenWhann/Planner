@@ -4,10 +4,14 @@
 
 $(function () {
 
-var input = $('#hour-9');
+var input = $('');
 var saveBtn = $('.saveBtn');
+currentHour = dayjs().hour();
+sectionHour = $('.container-fluid').siblings('id');
+
 
 getLocalStorage();
+setClass();
 
 function getLocalStorage() {
   var calendarEvent = localStorage.getItem("Calendar Event");
@@ -24,6 +28,18 @@ function saveInput(event) {
   console.log(input);
  
 };
+
+function setClass() {
+
+  console.log(currentHour);
+  console.log(sectionHour);
+
+  
+
+  // if id hour < current hour, then apply past class
+  // if id hour = current hour, then apply present class
+  // if id hour > current hour, then apply future class
+}
 
 $(saveBtn).on('click', saveInput);
 
