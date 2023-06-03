@@ -7,7 +7,6 @@ $(function () {
 var input = $('');
 var saveBtn = $('.saveBtn');
 currentHour = dayjs().hour();
-sectionHour = $('.container-fluid').siblings('id');
 
 
 getLocalStorage();
@@ -32,9 +31,36 @@ function saveInput(event) {
 function setClass() {
 
   console.log(currentHour);
-  console.log(sectionHour);
 
-  
+  $('.time-block').each(function() {
+
+    var hourID = $(this).attr('id');
+
+    if (hourID < currentHour) { 
+
+      $(hourID).addClass("past");
+      $(hourID).removeClass("present");
+      $(hourID).removeClass("future");
+
+    } else if (hourID == currentHour) { 
+
+      $(hourID).addClass("present");
+      $(hourID).removeClass("past");
+      $(hourID).removeClass("future");
+    
+    } else if (hourID > currentHour) {
+
+      $(hourID).addClass("future");
+      $(hourID).removeClass("past");
+      $(hourID).removeClass("present");
+    
+    } else {
+
+      alert("This shit didn't work");
+
+    }
+
+  })
 
   // if id hour < current hour, then apply past class
   // if id hour = current hour, then apply present class
