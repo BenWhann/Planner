@@ -7,10 +7,20 @@ $(function () {
 var input = $('');
 var saveBtn = $('.saveBtn');
 currentHour = dayjs().hour();
+currentDate = dayjs().format('MM/DD/YYYY');
 
-
+setDate();
 getLocalStorage();
 setClass();
+console.log(currentDate);
+
+
+function setDate() {
+  var dateElement = $('<h2>');
+  $(dateElement).text(currentDate);
+  $("#header").append(dateElement);
+}
+
 
 function getLocalStorage() {
   var calendarEvent = localStorage.getItem("Calendar Event");
@@ -38,25 +48,25 @@ function setClass() {
 
     if (hourID < currentHour) { 
 
-      $(hourID).addClass("past");
-      $(hourID).removeClass("present");
-      $(hourID).removeClass("future");
+      $(this).addClass("past");
+      $(this).removeClass("present");
+      $(this).removeClass("future");
 
     } else if (hourID == currentHour) { 
 
-      $(hourID).addClass("present");
-      $(hourID).removeClass("past");
-      $(hourID).removeClass("future");
+      $(this).addClass("present");
+      $(this).removeClass("past");
+      $(this).removeClass("future");
     
     } else if (hourID > currentHour) {
 
-      $(hourID).addClass("future");
-      $(hourID).removeClass("past");
-      $(hourID).removeClass("present");
+      $(this).addClass("future");
+      $(this).removeClass("past");
+      $(this).removeClass("present");
     
     } else {
 
-      alert("This shit didn't work");
+      alert("This didn't work");
 
     }
 
