@@ -31,8 +31,8 @@ function saveInput(event) {
   event.preventDefault();
 
   var text = $(this).siblings('.description').val();
-  var hour = $(this).parent().attr('id').split('-')[1];
-  localStorage.setItem(text, hour);
+  var hour = $(this).parent().attr('id');
+  localStorage.setItem(hour, text);
 
   console.log(input);
  
@@ -45,6 +45,7 @@ function setClass() {
   $('.time-block').each(function() {
 
     var hourID = $(this).attr('id');
+    $(this).children('.description').val(localStorage.getItem(hourID));
 
     if (hourID < currentHour) { 
 
@@ -72,9 +73,6 @@ function setClass() {
 
   })
 
-  // if id hour < current hour, then apply past class
-  // if id hour = current hour, then apply present class
-  // if id hour > current hour, then apply future class
 }
 
 $(saveBtn).on('click', saveInput);
