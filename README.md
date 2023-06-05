@@ -16,8 +16,8 @@ In order to use this application, all you have to do is type what you have plann
 click the save button to save what you typed. Each time block will change color depending on if it is in the past, present, or future. 
 Easy peasy lemon squeezy.
 
-![alt text](assets/images/SS1.png)
-![alt text](assets/images/SS2.png)
+![alt text](Assets/Images/SS1.png)
+![alt text](Assets/Images/SS2.png)
 
 ## Credits
 
